@@ -1,0 +1,41 @@
+#:kivy 2.1.0
+<BallGame>:
+    canvas:
+        Rectangle:
+            pos:  0, self.height /4
+            size: root.width, 25
+    Label:
+        id: score_label
+        size: root.width, root.height / 4
+        text: "0"
+        pos: 0, root.height * 3 / 4
+        font_size: 120
+    Ball:
+        pos: 0, root.height / 4 + 25
+        id: ball
+    Obstacle:
+        pos: root.width - 60, root.height / 4 + 30
+        id: obstacle
+    Button:
+        text: 'UP'
+        font_size: 70
+        size: root.width, root.height / 4
+        on_press: root.move_up()
+
+<Ball>:
+    size: 50, 50
+    canvas:
+        Color:
+            rgba: 0, 1, 1, 1
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<Obstacle>:
+    size: 60, 60
+    canvas:
+        Color:
+            rgba: 0, 1, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
